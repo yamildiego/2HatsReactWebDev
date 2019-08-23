@@ -1,0 +1,18 @@
+.Search {
+    background: #6200EE;
+}
+
+.Search .input-group-text {
+    background: white;
+}
+
+.SearchArrow {
+    color: white;
+    font-size: 25px;
+}
+
+.SearchDay {
+    text-align: center;
+    color: white;
+    font-size: 35px;
+}
