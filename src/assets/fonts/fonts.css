@@ -1,7 +1,4 @@
 @font-face {
-    font-family: 'Corporate';
-    font-style: normal;
-    font-weight: 400;
-    font-display: auto;
-    src: local('Corporate Regular'), local('Corporate-Regular'), url('./Corporate.otf') format('opentype');
+    font-family: 'Sebino';
+    src: url('Sebino-Regular.ttf') format('truetype');
 }

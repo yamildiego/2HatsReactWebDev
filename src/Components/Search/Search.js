@@ -1,42 +1,41 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, InputGroup, Button, FormControl } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Container, Row, Col } from 'react-bootstrap';
+import InputSearch from './InputSearch';
+import DatePicker from '../DatePicker/DatePicker';
 import './Search.css';
 
 class Search extends Component {
-    state = {}
+    state = { isMobile: this.props.isMobile }
+    componentWillReceiveProps = (nextProps) => {
+        if (this.props.isMobile !== nextProps.isMobile) {
+            this.setState({ isMobile: nextProps.isMobile })
+        }
+    }
     render() {
         return (
-            <Container className="Search" fluid>
-                <Row className="justify-content-md-center">
-                    <Col md="6">
-                        <InputGroup className="mb-3 m-2 ">
-                            <InputGroup.Prepend>
-                                <InputGroup.Text>
-                                    <FontAwesomeIcon icon="search" />
-                                </InputGroup.Text>
-                            </InputGroup.Prepend>
-                            <FormControl
-                                className="border-left-0"
-                                placeholder="Search foods..."
-                            />
-                        </InputGroup>
-                    </Col>
-                </Row>
-                <Row className="justify-content-md-center">
-                    <Col xs="1" className="SearchArrow d-flex flex-column justify-content-center">
-                        <FontAwesomeIcon icon="chevron-left" />
-                    </Col>
-                    <Col xs="4">
-                        <div className="SearchDay">
-                            Today
+            <React.Fragment>
+                {
+                    this.state.isMobile &&
+                    <div className="Search">
+                        <div className="d-flex flex-nowrap justify-content-center">
+                            <div className="w-100 p-3">
+                                <InputSearch isMobile={this.state.isMobile} />
+                            </div>
                         </div>
-                    </Col>
-                    <Col xs="1" className="SearchArrow d-flex flex-column justify-content-center">
-                        <FontAwesomeIcon icon="chevron-right" />
-                    </Col>
-                </Row>
-            </Container>
+                    </div>
+                }
+                {
+                    !this.state.isMobile &&
+                    <Container className="Search" fluid>
+                        <Row className="justify-content-md-center">
+                            <Col md="6">
+                                <InputSearch isMobile={this.state.isMobile} />
+                                <DatePicker isMobile={this.state.isMobile} />
+                            </Col>
+                        </Row>
+                    </Container>
+                }
+            </React.Fragment>
         );
     }
 }

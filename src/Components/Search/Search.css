@@ -6,13 +6,23 @@
     background: white;
 }
 
-.SearchArrow {
-    color: white;
-    font-size: 25px;
+.SearchInput {
+    font-weight: bold;
+    border-left: 0;
+    font-size: 14px;
+    height: 40px;
+    line-height: 40px;
 }
 
-.SearchDay {
-    text-align: center;
-    color: white;
-    font-size: 35px;
+.SearchInputMobile {
+    font-weight: bold;
+    font-size: 25px;
+    line-height: 90px;
+    height: 90px;
+    border-left: 0;
+}
+
+.SearchIconMobile {
+    font-size: 1.8rem;
+    margin: 1rem;
 }

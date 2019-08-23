@@ -9,5 +9,9 @@
  */
 
 * {
-  font-family: 'Corporate';
+  font-family: 'Sebino';
+}
+
+::placeholder {
+  color: #212121!important;
 }
