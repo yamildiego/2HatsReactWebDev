@@ -1,7 +1,13 @@
-.CircleDataMobile {
-    width: 80px!important;
-    height: 80px!important;
+/*
+.CircleDataText {
+    font-size: 20px;
+    line-height: 16px;
+    padding-top: 10px;
 }
+
+.CircleDataUnit {
+    font-size: 11px;
+} */
 
 .CircleData {
     background: #00000080;
@@ -12,12 +18,30 @@
     margin: auto;
 }
 
-.CircleDataText {
-    font-size: 20px;
-    line-height: 16px;
-    padding-top: 10px;
+.CircleDataMobile {
+    background: #00000080;
+    color: #fff;
+    text-align: center;
+    width: 75px;
+    height: 75px;
+    margin: auto;
 }
 
-.CircleDataUnit {
+.CircleData .CircleDataText {
+    padding-top: 8px;
+}
+
+.CircleData .CircleDataUnit {
     font-size: 11px;
+    line-height: 5px;
+}
+
+.CircleDataMobile .CircleDataText {
+    font-size: 30px;
+    padding-top: 8px;
+}
+
+.CircleDataMobile .CircleDataUnit {
+    font-size: 18px;
+    line-height: 5px;
 }

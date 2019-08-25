@@ -1,9 +1,29 @@
-.DatePickerIcon {
-    font-size: 2rem;
+.DatePicker {
+    margin: 0.6rem
+}
+
+.DatePicker .DatePickerIcon {
+    font-size: 1.1rem;
+    color: white;
+    cursor: pointer;
+}
+
+.DatePicker .DatePickerText {
+    font-size: 2.1rem;
     color: white;
 }
 
-.DatePickerText {
-    font-size: 2.8rem;
-    color: white;
+.DatePickerMobile {
+    margin: 1rem
+}
+
+.DatePickerMobile .DatePickerIcon {
+    font-size: 1.2rem;
+    color: #6200ee;
+    cursor: pointer;
+}
+
+.DatePickerMobile .DatePickerText {
+    font-size: 2rem;
+    color: #212121;
 }

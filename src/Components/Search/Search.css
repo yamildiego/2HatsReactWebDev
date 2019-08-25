@@ -2,8 +2,14 @@
     background: #6200EE;
 }
 
+.Search .input-group {
+    width: auto;
+}
+
 .Search .input-group-text {
     background: white;
+    /* para mobile */
+    padding-right: 0;
 }
 
 .SearchInput {
@@ -16,13 +22,13 @@
 
 .SearchInputMobile {
     font-weight: bold;
-    font-size: 25px;
-    line-height: 90px;
-    height: 90px;
+    font-size: 20px;
+    line-height: 70px;
+    height: 70px;
     border-left: 0;
 }
 
 .SearchIconMobile {
     font-size: 1.8rem;
-    margin: 1rem;
+    margin: 0rem 0rem 0rem 0.5rem;
 }

@@ -4,50 +4,41 @@ import Moment from 'react-moment';
 import './DatePicker.css';
 
 class DatePicker extends Component {
-    // getDay = () => {
-    //     let today = new Date();
-    //     let daySelected = new Date(2015, 11, 31);
-    //     let textDay = "";
-    //     if (today == daySelected) {
-    //         textDay = "Today";
-    //     } else {
-
-    //         if (today == daySelected) {
-    //             textDay = "Yesterday";
-    //         }
-    //     }
-    //     return textDay;
-    // }
+    state = { isMobile: this.props.isMobile }
+    componentWillReceiveProps = (nextProps) => {
+        if (this.props.isMobile !== nextProps.isMobile) {
+            this.setState({ isMobile: nextProps.isMobile })
+        }
+    }
     render() {
         let today = new Date();
-        let yesterday = new Date();
-        let daySelected = new Date(2015, 11, 8);
-
-        // let test =today
+        let yesterday = new Date(today.getFullYear(), today.getMonth(), (today.getDate() - 1));
+        let daySelected = new Date(2019, 7, 24);
+        let isToday = today.toLocaleDateString().substring(0, 10) === daySelected.toLocaleDateString().substring(0, 10);
+        let isYesterday = yesterday.toLocaleDateString().substring(0, 10) === daySelected.toLocaleDateString().substring(0, 10);
 
         return (
-            <div class="DatePicker d-flex justify-content-between">
-                <div class="align-self-center text-left">
+            <div className={(this.state.isMobile ? "DatePickerMobile" : "DatePicker") + " d-flex justify-content-between pl-4 pr-4"}>
+                <div className="align-self-center text-left">
                     <FontAwesomeIcon icon="chevron-left" className="DatePickerIcon" />
                 </div>
-                <div className="DatePickerText">
+                <div className="DatePickerText" >
                     {
-                        (today === daySelected) &&
+                        isToday &&
                         "Today"
                     }
                     {
-                        (yesterday === daySelected) &&
+                        isYesterday &&
                         "Yesterday"
                     }
-                    {/* 1976-04-19T12:59-0500 */}
                     {
-                        (today !== daySelected && (yesterday !== daySelected)) &&
+                        (!isToday && !isYesterday) &&
                         <Moment format="DD MMM" withTitle>
                             {daySelected}
                         </Moment>
                     }
                 </div>
-                <div class="align-self-center text-right">
+                <div className="align-self-center text-right">
                     <FontAwesomeIcon icon="chevron-right" className="DatePickerIcon" />
                 </div>
             </div>

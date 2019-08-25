@@ -2,21 +2,32 @@ import React, { Component } from 'react';
 import { Image } from 'react-bootstrap';
 import CircleData from './../CircleData/CircleData';
 import ImageProfile from './../../assets/image/profile.fw.png';
-import { withGetScreen } from 'react-getscreen'
 import './BasicInformationSM.css';
 
 class BasicInformation extends Component {
-
+    state = { isMobile: this.props.isMobile }
+    componentWillReceiveProps = (nextProps) => {
+        if (this.props.isMobile !== nextProps.isMobile) {
+            this.setState({ isMobile: nextProps.isMobile })
+        }
+    }
     render() {
         return (
             <React.Fragment>
-                {/* {this.state.isMobile} */}
-                {this.state.width < 768 ?
-                    <div class="BasicInformationSM d-flex justify-content-between">
-                        <Image src={ImageProfile} roundedCircle />
-                        {this.props.data.first_name}
-                        <CircleData number={this.props.data.weight_kg} unit="kg" mobile />
-                        <CircleData number={this.props.data.height_cm} unit="cm" mobile />
+                {this.state.isMobile ?
+                    <div className="d-flex BasicInformationMobile">
+                        <div className="p-2">
+                            <Image src={ImageProfile} roundedCircle />
+                        </div>
+                        <div className="BasicInformationName mr-auto p-2">
+                            {this.props.data.first_name}
+                        </div>
+                        <div className="p-2">
+                            <CircleData number={this.props.data.weight_kg} unit="kg" mobile />
+                        </div>
+                        <div className="p-2">
+                            <CircleData number={this.props.data.height_cm} unit="cm" mobile />
+                        </div>
                     </div>
                     :
                     <div className="BasicInformation">
@@ -41,5 +52,4 @@ class BasicInformation extends Component {
         );
     }
 }
-const options = { mobileLimit: 768, tabletLimit: 800 }
-export default withGetScreen(BasicInformation, options);
+export default BasicInformation;

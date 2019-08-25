@@ -1,0 +1,15 @@
+.ItemFood img {
+    max-width: 50px;
+}
+
+.ItemFoodText {
+    font-weight: bold;
+}
+
+.ItemFoodSubtitle {
+    color: #666666;
+}
+
+.ItemFoodTexts {
+    border-bottom: 1px solid #e4e4e4;
+}

@@ -1,0 +1,23 @@
+.CardGold {
+    margin: 1rem 0rem;
+}
+
+.CardGoldMobile {
+    margin: 1rem 0rem;
+}
+
+.CardGoldCalories {
+    font-size: 1.5rem;
+    color: #212121;
+}
+
+.CardGoldMobile .CardGoldCalories {
+    font-size: 2rem;
+    color: #212121;
+}
+
+.CardGoldSubtitle {
+    font-size: 12px;
+    line-height: 8px;
+    color: #666666;
+}

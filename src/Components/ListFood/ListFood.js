@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import { Col } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import ItemFood from './../ItemFood/ItemFood';
 import './ListFood.css';
 
 class ListFood extends Component {
     state = {}
     render() {
+        console.log(this.props.intake_list)
         return (
-            <Col lg="8" className="ListFood">
-                <div>
-                    <FontAwesomeIcon icon="spinner" className="fa-pulse" />
-                    alimentos
-                    </div>
+            <Col md="7" className="ListFood pr-0">
+                {
+                    this.props.intake_list.map((item, key) => {
+                        return <ItemFood key={key} {...item} />
+                    })
+                }
             </Col>
         );
     }

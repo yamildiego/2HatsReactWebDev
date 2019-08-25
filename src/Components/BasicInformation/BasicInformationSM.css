@@ -1,3 +1,13 @@
-.BasicInformationSM img {
+.BasicInformationMobile {
+    background: #6200EE;
+}
+
+/* .BasicInformationSM img {
     max-width: 60px;
+} */
+
+.BasicInformationMobile .BasicInformationName {
+    color: white;
+    font-size: 2rem;
+    line-height: 5rem;
 }
