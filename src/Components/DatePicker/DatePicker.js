@@ -15,12 +15,12 @@ class DatePicker extends Component {
     handleNextOnClick = () => {
         let newDateSelected = new Date(this.props.dateSelected.getFullYear(), this.props.dateSelected.getMonth(), (this.props.dateSelected.getDate() + 1))
         if (getDateFormatted(newDateSelected) <= getDateFormatted(today))
-            this.props.dispatch(actions.DateSet(newDateSelected));
+            this.props.dispatch(actions.DateSet(newDateSelected, this.props.dataPoints));
     }
 
     handleBackOnClick = () => {
         let newDateSelected = new Date(this.props.dateSelected.getFullYear(), this.props.dateSelected.getMonth(), (this.props.dateSelected.getDate() - 1))
-        this.props.dispatch(actions.DateSet(newDateSelected))
+        this.props.dispatch(actions.DateSet(newDateSelected, this.props.dataPoints))
     }
 
     render() {
@@ -68,7 +68,8 @@ class DatePicker extends Component {
 function mapStateToProps(state, props) {
     return {
         isMobile: state.general.isMobile,
-        dateSelected: state.general.dateSelected
+        dateSelected: state.general.dateSelected,
+        dataPoints: state.personal.dataPoints
     }
 }
 

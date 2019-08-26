@@ -15,7 +15,7 @@ const initialState = {
 export default function calculatedInformation(state = initialState, action = {}) {
     switch (action.type) {
         case CALORIES_SET:
-            return { ...state, caloriesConsumed: action.caloriesConsumed };
+            return { ...action.data }
         default:
             return state;
     }

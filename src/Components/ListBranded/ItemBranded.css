@@ -1,0 +1,28 @@
+.ItemBranded {
+    height: 60px;
+}
+
+.ItemBranded img {
+    max-width: 50px;
+    max-height: 50px;
+}
+
+.ItemBrandedSubtitle {
+    color: #646464;
+}
+
+.ItemBrandedText {
+    font-weight: bold;
+}
+
+.ItemBrandedTexts {
+    border-bottom: 1px solid #e4e4e4;
+}
+
+.ItemBrandedPhoto {
+    width: 80px;
+}
+
+.ItemBranded:nth-child(6n) .ItemBrandedTexts {
+    border-bottom: 0;
+}

@@ -26,7 +26,7 @@ class BasicInformation extends Component {
                             </div>
                         </div>
                         :
-                        <div className="BasicInformation">
+                        <div className="BasicInformation noselect">
                             <div className="d-flex bd-highlight">
                                 <div className="p-2 flex-fill bd-highlight d-flex flex-column justify-content-center">
                                     <CircleData number={this.props.personal.weightKG} unit="kg" />

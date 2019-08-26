@@ -6,18 +6,21 @@ import * as actions from './../../actions/general';
 
 class InputSearch extends Component {
     handleOnKeyDown = (event) => {
-        if (event.which === 27 || event.which == 8) {
-            if (this.inputSearch.value.length <= 1 || event.which === 27)
-                this.props.dispatch(actions.searchModalSet(false))
-        } else
-            this.props.dispatch(actions.searchModalSet(true))
+        if (event.which === 27)
+            this.props.dispatch(actions.searchModalSet(false))
     }
 
     handleOnChange = (event) => {
-        if (this.inputSearch.value == "") this.props.dispatch(actions.searchModalSet(false))
+        if (this.inputSearch.value === "")
+            this.props.dispatch(actions.searchModalSet(false, ""))
+        else
+            this.props.dispatch(actions.searchModalSet(true, this.inputSearch.value))
     }
 
-    handleOnClick = () => this.props.dispatch(actions.searchModalSet(true))
+    handleOnClick = () => {
+        if (this.inputSearch.value !== "")
+            this.props.dispatch(actions.searchModalSet(true, this.inputSearch.value))
+    }
 
     setRef = element => this.inputSearch = element;
 
@@ -36,6 +39,7 @@ class InputSearch extends Component {
                     className={(this.props.isMobile ? "SearchInputMobile" : "SearchInput") + " form-control"}
                     placeholder="Search foods..."
                     ref={this.setRef}
+                    value={this.props.searchText}
                 />
             </InputGroup>
         );
@@ -44,7 +48,8 @@ class InputSearch extends Component {
 
 function mapStateToProps(state, props) {
     return {
-        isMobile: state.general.isMobile
+        isMobile: state.general.isMobile,
+        searchText: state.general.searchText
     }
 }
 

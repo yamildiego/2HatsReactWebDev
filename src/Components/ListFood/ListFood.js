@@ -3,10 +3,12 @@ import { connect } from 'react-redux';
 import { Col } from 'react-bootstrap';
 import ItemFood from './../ItemFood/ItemFood';
 import './ListFood.css';
-import { getDateFormatted } from './../../assets/utils/utils';
+
+let today = new Date();
 
 class ListFood extends Component {
     render() {
+        let isToday = today.toLocaleDateString().substring(0, 10) === this.props.dateSelected.toLocaleDateString().substring(0, 10);
         return (
             <Col md="7" className="ListFood pr-0">
                 {
@@ -14,27 +16,21 @@ class ListFood extends Component {
                         return <ItemFood key={key} {...item} />
                     })
                 }
+                {
+                    (this.props.intakeList.length === 0) &&
+                    <div className="ListFoodNoElement noselect">
+                        No food item added{isToday ? ' yet' : ''}.
+                    </div>
+                }
             </Col>
         );
     }
 }
 
-function getIntakeList(elements, date) {
-    let intakeList = [];
-    elements.forEach((element) => {
-        if (getDateFormatted(date) === element.date) {
-            intakeList = element.intakeList;
-        }
-    });
-
-    return intakeList;
-}
-
 function mapStateToProps(state, props) {
-    console.log(state)
     return {
-        intakeList: getIntakeList(state.personal.dataPoints, state.general.dateSelected)
-        // intakeList: []
+        intakeList: state.personal.intakeList,
+        dateSelected: state.general.dateSelected
     }
 }
 

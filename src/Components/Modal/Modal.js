@@ -7,7 +7,7 @@ function Modal(props) {
             <div className="ModalContent">
                 {props.children}
             </div>
-            <div className="ModalBackdrop"></div>
+            <div className="ModalBackdrop" onClick={props.closeModal}></div>
         </div>
     )
 

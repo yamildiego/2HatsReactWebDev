@@ -1,0 +1,9 @@
+.Loading {
+    text-align: center;
+    margin: 2rem;
+}
+
+.Loading svg {
+    font-size: 40px;
+    color: #6200EE;
+}
