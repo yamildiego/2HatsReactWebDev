@@ -14,9 +14,7 @@ export const searchModalSet = searchVisible => ({
     searchVisible
 })
 
-export const DateSet = dateSelected => {
-    return {
-        type: DATE_SET,
-        dateSelected
-    }
-}
+export const DateSet = dateSelected => ({
+    type: DATE_SET,
+    dateSelected
+})

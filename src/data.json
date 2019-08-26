@@ -1,0 +1,124 @@
+{
+    "firstName": "Jane",
+    "lastName": "Appleseed",
+    "heightCM": 163,
+    "weightKG": 57,
+    "dailyGoal": 1500,
+    "dataPoints": [
+        {
+            "date": "2019-08-26",
+            "intakeList": []
+        },
+        {
+            "date": "2019-08-25",
+            "intakeList": [
+                {
+                    "nixItemId": "55c9298af0432259369100c4",
+                    "foodName": "Italian sausage",
+                    "servingUnit": "link",
+                    "servingWeightGrams": 75,
+                    "servingQty": 1,
+                    "nfCalories": 258,
+                    "servingSize": 2,
+                    "mealType": "breakfast",
+                    "thumb": "https://d1r9wva3zcpswd.cloudfront.net/55c92acdf04322593691010c.jpeg"
+                },
+                {
+                    "foodName": "salmon salad",
+                    "servingUnit": "cup",
+                    "servingWeightGrams": 407.01,
+                    "servingQty": 1,
+                    "nfCalories": 389.27,
+                    "servingSize": 1.5,
+                    "mealType": "lunch",
+                    "thumb": "https://d2xdmhkmkbyw75.cloudfront.net/3121_thumb.jpg"
+                },
+                {
+                    "foodName": "boneless skinless chicken breasts",
+                    "servingQty": 1,
+                    "servingUnit": "breast",
+                    "servingWeightGrams": 120,
+                    "nfCalories": 198,
+                    "servingSize": 2,
+                    "mealType": "dinner",
+                    "thumb": "https://d2xdmhkmkbyw75.cloudfront.net/7820_thumb.jpg"
+                },
+                {
+                    "foodName": "slice cheese",
+                    "servingQty": 1,
+                    "servingUnit": "slice",
+                    "servingWeightGrams": 28,
+                    "nfCalories": 113.12,
+                    "servingSize": 2,
+                    "mealType": "snack",
+                    "thumb": "https://d2xdmhkmkbyw75.cloudfront.net/8185_thumb.jpg"
+                },
+                {
+                    "foodName": "orange",
+                    "servingQty": 1,
+                    "servingUnit": "fruit (2-7/8\" dia)",
+                    "servingWeightGrams": 140,
+                    "nfCalories": 68.6,
+                    "servingSize": 2,
+                    "mealType": "snack",
+                    "thumb": "https://d2xdmhkmkbyw75.cloudfront.net/719_thumb.jpg"
+                }
+            ]
+        },
+        {
+            "date": "2019-08-24",
+            "intakeList": [
+                {
+                    "foodName": "fried eggs",
+                    "servingQty": 1,
+                    "servingUnit": "large",
+                    "servingWeightGrams": 46,
+                    "nfCalories": 90.16,
+                    "servingSize": 2,
+                    "mealType": "breakfast",
+                    "thumb": "https://d2xdmhkmkbyw75.cloudfront.net/1741_thumb.jpg"
+                },
+                {
+                    "foodName": "chicken salad",
+                    "servingQty": 0.5,
+                    "servingUnit": "cup",
+                    "servingWeightGrams": 112.1,
+                    "nfCalories": 253.99,
+                    "servingSize": 1,
+                    "mealType": "lunch",
+                    "thumb": "https://d2xdmhkmkbyw75.cloudfront.net/3121_thumb.jpg"
+                },
+                {
+                    "nixItemId": "598c0695306b814040ff908b",
+                    "foodName": "Boneless Skinless Chicken Breasts",
+                    "servingUnit": "oz",
+                    "servingQty": 4,
+                    "nfCalories": 110,
+                    "servingSize": 1,
+                    "mealType": "dinner",
+                    "thumb": "https://d1r9wva3zcpswd.cloudfront.net/5c04d53ff01a65ec7b2089dd.jpeg"
+                },
+                {
+                    "foodName": "slice cheese",
+                    "servingQty": 1,
+                    "servingUnit": "slice",
+                    "servingWeightGrams": 28,
+                    "nfCalories": 113.12,
+                    "servingSize": 2,
+                    "mealType": "snack",
+                    "thumb": "https://d2xdmhkmkbyw75.cloudfront.net/8185_thumb.jpg"
+                },
+                {
+                    "foodName": "orange",
+                    "servingQty": 1,
+                    "servingUnit": "fruit (2-7/8\" dia)",
+                    "servingWeightGrams": 140,
+                    "nfCalories": 68.6,
+                    "servingSize": 2,
+                    "mealType": "snack",
+                    "thumb": "https://d2xdmhkmkbyw75.cloudfront.net/719_thumb.jpg"
+                }
+            ]
+        }
+    ]
+}

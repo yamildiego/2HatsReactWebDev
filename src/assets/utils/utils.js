@@ -14,5 +14,5 @@ export const appendLeadingZeroes = (number) => {
 }
 
 export const getDateFormatted = (date) => {
-    return date.getFullYear() + "" + appendLeadingZeroes(date.getMonth() + 1) + "" + appendLeadingZeroes(date.getDate())
+    return date.getFullYear() + "-" + appendLeadingZeroes(date.getMonth() + 1) + "-" + appendLeadingZeroes(date.getDate())
 }

@@ -9,12 +9,8 @@ class PersonalPanel extends Component {
     render() {
         return (
             <Col md="5" className="PersonalPanel h-100 d-inline-block">
-                <BasicInformation data={this.props.data} />
-                <Goal
-                    calories_by_meal_type={this.props.calories_by_meal_type}
-                    daily_goal={this.props.data.daily_goal}
-                    consumed={686}
-                />
+                <BasicInformation />
+                <Goal />
                 {/* <TechnicalInformation data={this.props.data} /> */}
             </Col>
         );

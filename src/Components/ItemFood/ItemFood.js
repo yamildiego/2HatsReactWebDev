@@ -4,7 +4,6 @@ import { capitalize, capitalizeAll } from '../../assets/utils/utils';
 import './ItemFood.css';
 
 class ItemFood extends Component {
-    state = {}
     render() {
         return (
             <div className="ItemFood d-flex bd-highlight mt-3 mb-3">
@@ -14,18 +13,19 @@ class ItemFood extends Component {
                 <div className="w-100 d-flex d-flex justify-content-between ItemFoodTexts">
                     <div className="p-2 bd-highlight">
                         <div className="ItemFoodText">
-                            {capitalizeAll(this.props.food_name)}
+                            {capitalizeAll(this.props.foodName)}
                         </div>
                         <div className="ItemFoodSubtitle">
-                            {this.props.serving_qty} {this.props.serving_unit} ({Math.trunc(this.props.serving_weight_grams)} g)
-                    </div>
+                            {this.props.servingQty} {this.props.servingUnit}
+                            {(this.props.servingWeightGrams) ? `(${Math.trunc(this.props.servingWeightGrams)} g)` : ""}
+                        </div>
                     </div>
                     <div className="p-2 bd-highlight">
                         <div className="ItemFoodText text-right">
-                            {Math.trunc(this.props.nf_calories)} cal
+                            {Math.trunc(this.props.nfCalories)} cal
                     </div>
                         <div className="ItemFoodSubtitle">
-                            {capitalize(this.props.meal_type)}
+                            {capitalize(this.props.mealType)}
                         </div>
                     </div>
                 </div>

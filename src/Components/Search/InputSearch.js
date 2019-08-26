@@ -5,15 +5,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import * as actions from './../../actions/general';
 
 class InputSearch extends Component {
-    handleOnKeyPress = (e) => {
-        if (e.which === 27) {
-            this.props.dispatch(actions.searchModalSet(false))
-        } else {
+    handleOnKeyDown = (event) => {
+        if (event.which === 27 || event.which == 8) {
+            if (this.inputSearch.value.length <= 1 || event.which === 27)
+                this.props.dispatch(actions.searchModalSet(false))
+        } else
             this.props.dispatch(actions.searchModalSet(true))
-        }
+    }
+
+    handleOnChange = (event) => {
+        if (this.inputSearch.value == "") this.props.dispatch(actions.searchModalSet(false))
     }
 
     handleOnClick = () => this.props.dispatch(actions.searchModalSet(true))
+
+    setRef = element => this.inputSearch = element;
 
     render() {
         return (
@@ -24,10 +30,12 @@ class InputSearch extends Component {
                     </InputGroup.Text>
                 </InputGroup.Prepend>
                 <input type="text"
-                    onKeyDown={this.handleOnKeyPress}
+                    onChange={this.handleOnChange}
+                    onKeyDown={this.handleOnKeyDown}
                     onClick={this.handleOnClick}
                     className={(this.props.isMobile ? "SearchInputMobile" : "SearchInput") + " form-control"}
                     placeholder="Search foods..."
+                    ref={this.setRef}
                 />
             </InputGroup>
         );

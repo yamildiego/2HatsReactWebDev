@@ -3,10 +3,10 @@ import {
 } from './types';
 
 const initialState = {
-    firstName: 'Yamil',
-    lastName: 'Diego',
-    heightCM: 13,
-    weightKG: 14,
+    firstName: '',
+    lastName: '',
+    heightCM: 0,
+    weightKG: 0,
     dailyGoal: 0,
     dataPoints: []
 }

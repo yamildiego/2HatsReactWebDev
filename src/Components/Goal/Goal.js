@@ -8,19 +8,19 @@ import { capitalize } from './../../assets/utils/utils';
 
 class Goal extends Component {
     render() {
-        let percentage = Math.trunc(this.props.consumed * 100 / this.props.percentage.dailyGoal);
+        let percentage = Math.trunc(this.props.caloriesConsumed * 100 / this.props.personal.dailyGoal);
         return (
-            <div className="Goal">
+            <div className="Goal noselect">
                 <div className="d-flex justify-content-between">
                     <CardGold
                         isMobile={this.props.isMobile}
-                        calories={this.props.consumed}
+                        calories={this.props.caloriesConsumed}
                         subtitle="consumed"
                         align="left"
                     />
                     <CardGold
                         isMobile={this.props.isMobile}
-                        calories={this.props.daily_goal}
+                        calories={this.props.personal.dailyGoal}
                         subtitle="daily goal"
                         align="right"
                     />
@@ -36,8 +36,8 @@ class Goal extends Component {
                 </div>
                 <div className="d-flex justify-content-between">
                     {
-                        Object.keys(this.props.calories_by_meal_type).map((key, i) => {
-                            return <GoalData key={i} isMobile={this.props.isMobile} text={capitalize(key)} number={this.props.calories_by_meal_type[key]} />
+                        Object.keys(this.props.caloriesByMealType).map((key, i) => {
+                            return <GoalData key={i} isMobile={this.props.isMobile} text={capitalize(key)} number={this.props.caloriesByMealType[key]} />
                         })
                     }
                 </div>
@@ -49,7 +49,9 @@ class Goal extends Component {
 function mapStateToProps(state, props) {
     return {
         isMobile: state.general.isMobile,
-        personal: state.personal
+        personal: state.personal,
+        caloriesConsumed: state.calculatedInformation.caloriesConsumed,
+        caloriesByMealType: state.calculatedInformation.caloriesByMealType
     }
 }
 
