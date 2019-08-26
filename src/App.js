@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
+import { connect } from 'react-redux';
 import Search from './Components/Search/Search';
 import DatePicker from './Components/DatePicker/DatePicker';
 import BasicInformation from './Components/BasicInformation/BasicInformation';
 import Goal from './Components/Goal/Goal';
 import PersonalPanel from './Components/PersonalPanel/PersonalPanel';
 import ListFood from './Components/ListFood/ListFood';
+import ModalContainer from './Components/Modal/ModalContainer';
+import Modal from './Components/Modal/Modal';
+import * as actions from './actions/general';
 
 let diet = {
   first_name: 'Jane',
@@ -145,62 +149,67 @@ let diet = {
 
 class App extends Component {
   state = {
-    isMobile: 0,
     calories_by_meal_type: {
       breakfast: 153,
       lunch: 570,
       dinner: 453,
       snack: 113
     }
-  };
+  }
 
   componentDidMount = () => {
-    this.updateWindowDimensions();
     window.addEventListener("resize", this.updateWindowDimensions);
+    this.updateWindowDimensions();
   }
 
-  componentWillUnmount = () => {
-    window.removeEventListener("resize", this.updateWindowDimensions);
-  }
+  componentWillUnmount = () => window.removeEventListener("resize", this.updateWindowDimensions);
+  updateWindowDimensions = () => this.props.dispatch(actions.mobileSet(window.innerWidth < 768))
 
-  updateWindowDimensions = () => {
-    this.setState({ isMobile: (window.innerWidth < 768) });
-  }
   render() {
     return (
       <React.Fragment>
-        <Search isMobile={this.state.isMobile} />
+        <Search />
         {
-          this.state.isMobile &&
+          this.props.isMobile &&
           <React.Fragment>
-            <BasicInformation data={diet} isMobile={this.state.isMobile} />
-            <DatePicker isMobile={this.state.isMobile} />
-            {
-              console.error(this.state)
-            }
-            <Goal
-              calories_by_meal_type={this.state.calories_by_meal_type}
-              daily_goal={diet.daily_goal}
-              consumed={686}
-              isMobile={this.state.isMobile}
-            />
-            <ListFood intake_list={diet.data_points[1].intake_list} />
+            <BasicInformation />
+            <DatePicker />
+            <Goal />
+            {/* <ListFood /> */}
           </React.Fragment>
         }
         {
-          !this.state.isMobile &&
+          !this.props.isMobile &&
           <Container fluid>
             <Row>
-              <PersonalPanel
+              {/* <PersonalPanel
                 data={diet}
                 calories_by_meal_type={this.state.calories_by_meal_type}
               />
-              <ListFood intake_list={diet.data_points[1].intake_list} />
+              <ListFood intake_list={diet.data_points[1].intake_list} /> */}
             </Row>
           </Container>
         }
+        {/* <div onClick={this.openModal}>adadasdadca</div>
+        {
+          this.state.searchVisible &&
+          <ModalContainer>
+            <Modal closeModal={this.closeModal}>
+              vasa
+              <div onClick={this.closeModal}>CLOSE</div>
+            </Modal>
+          </ModalContainer>
+        } */}
       </React.Fragment>
     );
   }
 }
-export default App;
+
+function mapStateToProps(state, props) {
+  return {
+    isMobile: state.general.isMobile,
+    searchVisible: state.general.searchVisible
+  }
+}
+
+export default connect(mapStateToProps)(App);

@@ -3,9 +3,12 @@
 }
 
 .DatePicker .DatePickerIcon {
+    cursor: pointer;
+}
+
+.DatePicker .DatePickerIcon svg {
     font-size: 1.1rem;
     color: white;
-    cursor: pointer;
 }
 
 .DatePicker .DatePickerText {
@@ -18,9 +21,12 @@
 }
 
 .DatePickerMobile .DatePickerIcon {
+    cursor: pointer;
+}
+
+.DatePickerMobile .DatePickerIcon svg {
     font-size: 1.2rem;
     color: #6200ee;
-    cursor: pointer;
 }
 
 .DatePickerMobile .DatePickerText {

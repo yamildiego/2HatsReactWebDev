@@ -1,28 +1,44 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Moment from 'react-moment';
+import * as actions from './../../actions/general';
 import './DatePicker.css';
+import { getDateFormatted } from './../../assets/utils/utils';
+
+let today = new Date();
+let yesterday = new Date(today.getFullYear(), today.getMonth(), (today.getDate() - 1));
+let isToday = false;
+let isYesterday = false;
 
 class DatePicker extends Component {
-    state = { isMobile: this.props.isMobile }
-    componentWillReceiveProps = (nextProps) => {
-        if (this.props.isMobile !== nextProps.isMobile) {
-            this.setState({ isMobile: nextProps.isMobile })
-        }
+    handleNextOnClick = () => {
+        let newDateSelected = new Date(this.props.dateSelected.getFullYear(), this.props.dateSelected.getMonth(), (this.props.dateSelected.getDate() + 1))
+        if (getDateFormatted(newDateSelected) <= getDateFormatted(today))
+            this.props.dispatch(actions.DateSet(newDateSelected));
     }
+
+    handleBackOnClick = () => {
+        let newDateSelected = new Date(this.props.dateSelected.getFullYear(), this.props.dateSelected.getMonth(), (this.props.dateSelected.getDate() - 1))
+        this.props.dispatch(actions.DateSet(newDateSelected))
+    }
+
     render() {
-        let today = new Date();
-        let yesterday = new Date(today.getFullYear(), today.getMonth(), (today.getDate() - 1));
-        let daySelected = new Date(2019, 7, 24);
-        let isToday = today.toLocaleDateString().substring(0, 10) === daySelected.toLocaleDateString().substring(0, 10);
-        let isYesterday = yesterday.toLocaleDateString().substring(0, 10) === daySelected.toLocaleDateString().substring(0, 10);
+
+        if (this.props.dateSelected !== undefined) {
+            isToday = today.toLocaleDateString().substring(0, 10) === this.props.dateSelected.toLocaleDateString().substring(0, 10);
+            isYesterday = yesterday.toLocaleDateString().substring(0, 10) === this.props.dateSelected.toLocaleDateString().substring(0, 10);
+        }
 
         return (
-            <div className={(this.state.isMobile ? "DatePickerMobile" : "DatePicker") + " d-flex justify-content-between pl-4 pr-4"}>
-                <div className="align-self-center text-left">
-                    <FontAwesomeIcon icon="chevron-left" className="DatePickerIcon" />
+            <div className={(this.props.isMobile ? "DatePickerMobile" : "DatePicker") + " d-flex justify-content-between pl-4 pr-4"}>
+                <div
+                    className="align-self-center text-left DatePickerIcon"
+                    onClick={this.handleBackOnClick}
+                >
+                    <FontAwesomeIcon icon="chevron-left" />
                 </div>
-                <div className="DatePickerText" >
+                <div className="DatePickerText noselect">
                     {
                         isToday &&
                         "Today"
@@ -34,16 +50,26 @@ class DatePicker extends Component {
                     {
                         (!isToday && !isYesterday) &&
                         <Moment format="DD MMM" withTitle>
-                            {daySelected}
+                            {this.props.dateSelected}
                         </Moment>
                     }
                 </div>
-                <div className="align-self-center text-right">
-                    <FontAwesomeIcon icon="chevron-right" className="DatePickerIcon" />
+                <div
+                    className="align-self-center text-right DatePickerIcon"
+                    onClick={this.handleNextOnClick}
+                >
+                    <FontAwesomeIcon icon="chevron-right" />
                 </div>
             </div>
         );
     }
 }
 
-export default DatePicker;
+function mapStateToProps(state, props) {
+    return {
+        isMobile: state.general.isMobile,
+        dateSelected: state.general.dateSelected
+    }
+}
+
+export default connect(mapStateToProps)(DatePicker);

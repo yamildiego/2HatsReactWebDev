@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { ProgressBar } from 'react-bootstrap';
 import CardGold from './CardGoal';
 import GoalData from './GoalData';
@@ -6,9 +7,8 @@ import './Goal.css';
 import { capitalize } from './../../assets/utils/utils';
 
 class Goal extends Component {
-    state = {}
     render() {
-        let percentage = Math.trunc(this.props.consumed * 100 / this.props.daily_goal);
+        let percentage = Math.trunc(this.props.consumed * 100 / this.props.percentage.dailyGoal);
         return (
             <div className="Goal">
                 <div className="d-flex justify-content-between">
@@ -46,4 +46,11 @@ class Goal extends Component {
     }
 }
 
-export default Goal;
+function mapStateToProps(state, props) {
+    return {
+        isMobile: state.general.isMobile,
+        personal: state.personal
+    }
+}
+
+export default connect(mapStateToProps)(Goal);

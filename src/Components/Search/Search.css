@@ -4,6 +4,7 @@
 
 .Search .input-group {
     width: auto;
+    z-index: 100;
 }
 
 .Search .input-group-text {

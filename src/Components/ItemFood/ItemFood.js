@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Image } from 'react-bootstrap';
-import ImageFood from "./../../assets/image/profile.fw.png";
-import './ItemFood.css';
 import { capitalize, capitalizeAll } from '../../assets/utils/utils';
+import './ItemFood.css';
 
 class ItemFood extends Component {
     state = {}

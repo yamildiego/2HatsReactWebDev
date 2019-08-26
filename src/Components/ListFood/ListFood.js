@@ -5,9 +5,7 @@ import ItemFood from './../ItemFood/ItemFood';
 import './ListFood.css';
 
 class ListFood extends Component {
-    state = {}
     render() {
-        console.log(this.props.intake_list)
         return (
             <Col md="7" className="ListFood pr-0">
                 {
