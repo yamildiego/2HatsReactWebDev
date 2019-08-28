@@ -17,7 +17,11 @@
 }
 
 .AddCardTitle {
-    font-size: 30px;
+    font-size: 28px;
+}
+
+.AddCardSubtitle {
+    color: #646464;
 }
 
 .AddCardClose {
@@ -68,4 +72,14 @@
     background: #43039d!important;
     box-shadow: none!important;
     border: 0;
+}
+
+.AddCardTitleSelec {
+    padding-top: 10px;
+    color: #646464;
+    font-weight: bold;
+    font-size: 11px;
+    letter-spacing: 1px;
+    margin: 8px 0;
+    text-transform: uppercase;
 }

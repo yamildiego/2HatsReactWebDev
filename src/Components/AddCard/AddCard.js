@@ -23,6 +23,16 @@ class AddCard extends Component {
     handleAddOnclick = () => this.props.dispatch(actionsPersonalData.AddItemFoodSet(this.props.dataPoints, this.props.itemFoodSelected, Object.keys(this.props.caloriesByMealType)[this.props.mealTypeSelected], this.props.servingSize));
 
     render() {
+        let grams = null;
+        if (this.props.itemFoodSelected != null)
+            grams = parseInt((1 / this.props.itemFoodSelected.serving_qty) * this.props.itemFoodSelected.serving_weight_grams * this.props.servingSize);
+        if (!Number.isInteger(grams)) grams = "-";
+
+        let calories = null;
+        if (this.props.itemFoodSelected != null)
+            calories = parseInt((1 / this.props.itemFoodSelected.serving_qty) * this.props.itemFoodSelected.nf_calories * this.props.servingSize);
+        if (!Number.isInteger(calories)) calories = "-";
+
         return (
             <React.Fragment>
                 {
@@ -39,7 +49,8 @@ class AddCard extends Component {
                                                 className="AddCardImage"
                                                 src={this.props.itemFoodSelected.photo.thumb}
                                             />
-                                            <div className="AddCardTitle">{this.props.itemFoodSelected.food_name}</div>
+                                            <div className="AddCardTitle">{capitalize(this.props.itemFoodSelected.food_name)}</div>
+                                            <div className="AddCardSubtitle">{(this.props.itemFoodSelected.brand_name) ? capitalize(this.props.itemFoodSelected.brand_name) : null}</div>
                                         </div>
                                     </div>
                                     <div className="AddCardBody d-flex justify-content-between">
@@ -50,15 +61,16 @@ class AddCard extends Component {
                                             />
                                         </div>
                                         <div>
-                                            <div className="AddCardNumber">{parseInt((1 / this.props.itemFoodSelected.serving_qty) * this.props.itemFoodSelected.serving_weight_grams * this.props.servingSize)}</div>
+                                            <div className="AddCardNumber">{grams}</div>
                                             <div className="AddCardDetail">grams</div>
                                         </div>
                                         <div>
-                                            <div className="AddCardNumber">{parseInt((1 / this.props.itemFoodSelected.serving_qty) * this.props.itemFoodSelected.nf_calories * this.props.servingSize)}</div>
+                                            <div className="AddCardNumber">{calories}</div>
                                             <div className="AddCardDetail">calories</div>
                                         </div>
                                     </div>
                                     <div className="AddCardFooter">
+                                        <div className="AddCardTitleSelec">Add to today</div>
                                         <div>
                                             <Dropdown>
                                                 <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components">

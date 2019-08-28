@@ -5,7 +5,7 @@ import './ItemBranded.css';
 
 const ItemBranded = (props) => {
     return (
-        <div className="ItemBranded d-flex bd-highlight mt-1 mb-1">
+        <div className="ItemBranded d-flex bd-highlight mt-1 mb-1" onClick={() => props.handleAddOnClick(props)}>
             <div className="p-2 bd-highlight ItemBrandedPhoto">
                 <Image src={props.photo.thumb} />
             </div>

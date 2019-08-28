@@ -23,6 +23,11 @@
     width: 80px;
 }
 
+.ItemBranded:hover {
+    cursor: pointer;
+    background: #6200ee33;
+}
+
 .ItemBranded:nth-child(6n) .ItemBrandedTexts {
     border-bottom: 0;
 }

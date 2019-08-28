@@ -1,9 +1,14 @@
 .BasicInformationMobile {
     background: #6200EE;
+    padding: 0rem 1rem;
 }
 
 .BasicInformationMobile .BasicInformationName {
     color: white;
-    font-size: 2rem;
-    line-height: 5rem;
+    font-size: 22px;
+    line-height: 62px;
+}
+
+.BasicInformationMobile img {
+    width: 60px;
 }

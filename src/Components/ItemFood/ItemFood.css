@@ -13,3 +13,15 @@
 .ItemFoodTexts {
     border-bottom: 1px solid #e4e4e4;
 }
+
+@media only screen and (max-width: 768px) {
+    .ItemFood:first-child {
+        padding-top: 1rem;
+    }
+    .ItemFoodText {
+        font-size: 19px;
+    }
+    .ItemFoodSubtitle {
+        line-height: 30px;
+    }
+}

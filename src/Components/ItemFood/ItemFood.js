@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Image } from 'react-bootstrap';
 import { capitalize, capitalizeAll } from '../../assets/utils/utils';
 import './ItemFood.css';
@@ -6,7 +7,7 @@ import './ItemFood.css';
 class ItemFood extends Component {
     render() {
         return (
-            <div className="ItemFood d-flex bd-highlight mt-3 mb-3">
+            <div className="ItemFood d-flex bd-highlight mt-3 mb-3 noselect">
                 <div className="p-2 bd-highlight">
                     <Image src={this.props.thumb} />
                 </div>
@@ -17,7 +18,7 @@ class ItemFood extends Component {
                         </div>
                         <div className="ItemFoodSubtitle">
                             {this.props.serving_size} {this.props.serving_unit}
-                            {(this.props.serving_weight_grams) ? `(${Math.trunc((1 / this.props.serving_qty) * this.props.serving_weight_grams * this.props.serving_size)} g)` : ""}
+                            {(this.props.serving_weight_grams) ? ` (${Math.trunc((1 / this.props.serving_qty) * this.props.serving_weight_grams * this.props.serving_size)} g)` : ""}
                         </div>
                     </div>
                     <div className="p-2 bd-highlight">
@@ -34,4 +35,10 @@ class ItemFood extends Component {
     }
 }
 
-export default ItemFood;
+function mapStateToProps(state, props) {
+    return {
+        ...state.personal.intakeList[props.index]
+    }
+}
+
+export default connect(mapStateToProps)(ItemFood);

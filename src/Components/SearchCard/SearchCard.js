@@ -17,7 +17,7 @@ class SearchCard extends Component {
                 {
                     this.props.searchVisible &&
                     <ModalSearchContainer>
-                        <ModalSearch closeModal={this.closeModalSearch} loading={this.props.loadingSearch}>
+                        <ModalSearch length={this.props.length} closeModal={this.closeModalSearch} loading={this.props.loadingSearch}>
                             <Loading loading={this.props.loadingSearch} />
                             {
                                 !this.props.loadingSearch &&
@@ -37,7 +37,8 @@ class SearchCard extends Component {
 function mapStateToProps(state, props) {
     return {
         searchVisible: state.general.searchVisible,
-        loadingSearch: state.general.loadingSearch
+        loadingSearch: state.general.loadingSearch,
+        length: state.general.common.length
     }
 }
 

@@ -9,6 +9,7 @@ import PersonalPanel from './Components/PersonalPanel/PersonalPanel';
 import ListFood from './Components/ListFood/ListFood';
 import SearchCard from './Components/SearchCard/SearchCard';
 import AddCard from './Components/AddCard/AddCard';
+import Fab from './Components/Fab/Fab';
 
 import * as actionsGeneral from './actions/general';
 import * as actionsPersonalData from './actions/personalData';
@@ -50,6 +51,7 @@ class App extends Component {
             }
             <SearchCard />
             <AddCard />
+            <Fab handleAddOnClick={this.handleAddOnClick} />
           </Col>
         </Row>
       </Container>

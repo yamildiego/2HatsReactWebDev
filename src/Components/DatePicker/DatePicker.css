@@ -30,6 +30,7 @@
 }
 
 .DatePickerMobile .DatePickerText {
-    font-size: 2rem;
+    font-size: 1.35rem;
     color: #212121;
+    font-weight: bold;
 }

@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ItemBranded from './ItemBranded';
+import * as actionsGeneral from './../../actions/general';
 import './ListBranded.css';
 
 class ListBranded extends Component {
+
+    handleAddOnClick = (item) => this.props.dispatch(actionsGeneral.itemFoodSelectedByIdSet(item.nix_item_id));
+
     render() {
         return (
             <div className="ListBranded">
@@ -11,7 +15,7 @@ class ListBranded extends Component {
                 {
                     this.props.branded.map((item, key) => {
                         if (key <= 4)
-                            return <ItemBranded key={key} {...item} />
+                            return <ItemBranded key={key} {...item} handleAddOnClick={this.handleAddOnClick} />
                         else
                             return null;
                     })

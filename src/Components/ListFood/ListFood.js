@@ -13,7 +13,7 @@ class ListFood extends Component {
             <Col md="7" className="ListFood pr-0">
                 {
                     this.props.intakeList.map((item, key) => {
-                        return <ItemFood key={key} {...item} />
+                        return <ItemFood key={key} index={key} />
                     })
                 }
                 {

@@ -13,9 +13,9 @@ import './assets/fonts/fonts.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faSpinner, faSearch, faChevronLeft, faChevronRight, faTimes, faChevronUp, faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { faSpinner, faSearch, faChevronLeft, faChevronRight, faTimes, faChevronUp, faChevronDown, faPlus } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faSpinner, faSearch, faChevronLeft, faChevronRight, faTimes, faChevronUp, faChevronDown);
+library.add(faSpinner, faSearch, faChevronLeft, faChevronRight, faTimes, faChevronUp, faChevronDown, faPlus);
 
 const store = createStore(
     rootReducers,

@@ -17,3 +17,9 @@
     font-size: 16px;
     color: #6f6f6f;
 }
+
+@media only screen and (max-width: 768px) {
+    .Goal {
+        margin: 1rem 1.5rem;
+    }
+}

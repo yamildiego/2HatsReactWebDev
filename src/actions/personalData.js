@@ -5,6 +5,7 @@ import {
 } from "./../Reducers/types";
 import { getDateFormatted } from './../assets/utils/utils';
 import * as actionsCalculatedInformation from './calculatedInformation';
+import * as actionsGeneral from './general';
 
 export const personalDataSet = (data) => {
     return (dispatch) => {
@@ -63,7 +64,11 @@ export const AddItemFoodSet = (dataPointsOld, itemFoodSelected, mealTypeSelected
             dataPoints
         });
 
-        dispatch(intakeListSet(dataPoints, today));
+        dispatch(actionsGeneral.DateSet(today, dataPoints))
+        dispatch(actionsGeneral.mealTypeSelectedSet(0));
+        dispatch(actionsGeneral.servingSizeSet(0));
+        dispatch(actionsGeneral.addModalSet(false));
+        dispatch(actionsGeneral.searchModalSet(false));
     }
 }
 

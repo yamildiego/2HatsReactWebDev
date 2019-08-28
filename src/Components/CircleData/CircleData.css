@@ -1,14 +1,3 @@
-/*
-.CircleDataText {
-    font-size: 20px;
-    line-height: 16px;
-    padding-top: 10px;
-}
-
-.CircleDataUnit {
-    font-size: 11px;
-} */
-
 .CircleData {
     background: #00000080;
     color: #fff;
@@ -22,8 +11,8 @@
     background: #00000080;
     color: #fff;
     text-align: center;
-    width: 75px;
-    height: 75px;
+    width: 65px;
+    height: 65px;
     margin: auto;
 }
 
@@ -37,11 +26,11 @@
 }
 
 .CircleDataMobile .CircleDataText {
-    font-size: 30px;
-    padding-top: 8px;
+    font-size: 22px;
+    padding-top: 6px;
 }
 
 .CircleDataMobile .CircleDataUnit {
-    font-size: 18px;
-    line-height: 5px;
+    font-size: 15px;
+    line-height: 8px;
 }

@@ -9,27 +9,39 @@
 
 .Search .input-group-text {
     background: white;
-    /* para mobile */
     padding-right: 0;
+    border: 0;
+}
+
+.InputSearchw {
+    margin: -1px;
+    font-weight: bold;
+    border-left: 0;
+    border-right: 1px solid #6200ee;
+    border-top: 1px solid #6200ee;
+    border-bottom: 1px solid white;
 }
 
 .SearchInput {
-    font-weight: bold;
-    border-left: 0;
     font-size: 14px;
     height: 40px;
     line-height: 40px;
 }
 
 .SearchInputMobile {
-    font-weight: bold;
     font-size: 20px;
-    line-height: 70px;
-    height: 70px;
-    border-left: 0;
+    line-height: 60px;
+    height: 60px;
 }
 
 .SearchIconMobile {
     font-size: 1.8rem;
     margin: 0rem 0rem 0rem 0.5rem;
+}
+
+.SearchInputMobile:focus, .SearchInput:focus {
+    box-shadow: none;
+    border-right: 1px solid #6200ee;
+    border-top: 1px solid #6200ee;
+    border-bottom: 1px solid white;
 }

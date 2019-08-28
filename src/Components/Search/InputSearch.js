@@ -36,7 +36,7 @@ class InputSearch extends Component {
                     onChange={this.handleOnChange}
                     onKeyDown={this.handleOnKeyDown}
                     onClick={this.handleOnClick}
-                    className={(this.props.isMobile ? "SearchInputMobile" : "SearchInput") + " form-control"}
+                    className={(this.props.isMobile ? "SearchInputMobile" : "SearchInput") + " InputSearchw form-control"}
                     placeholder="Search foods..."
                     ref={this.setRef}
                     value={this.props.searchText}

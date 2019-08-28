@@ -28,11 +28,11 @@ class Goal extends Component {
                         align="right"
                     />
                 </div>
-                <div>
+                <div className="mb-3">
                     <ProgressBar now={percentage} label={`${percentage}%`} srOnly />
                     <div
                         className="GoalPercentage"
-                        style={{ paddingLeft: (percentage - 2) + '%' }}
+                        style={{ paddingLeft: (percentage - 5) + '%' }}
                     >
                         {
                             `${percentage}%`

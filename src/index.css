@@ -28,3 +28,9 @@ html, body, #root {
     background: white;
   }
 }
+
+@media (max-width: 991px) and (min-width: 767px) {
+  .container {
+    max-width: 100%!important;
+  }
+}
