@@ -6,7 +6,7 @@ const ModalSearch = (props) => {
         <div className="ModalSearch">
             <div className={"ModalSearchContainer " + (props.loading ? "" : "h-100")}>
                 <div className={"ModalSearchContent " + (props.loading ? "" : "h-100")}>
-                    <div style={{ "overflow-y": "auto", "height": "100%" }}>
+                    <div style={{ overflowY: "auto", height: "100%" }}>
                         {props.children}
                     </div>
                 </div>

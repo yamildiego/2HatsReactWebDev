@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Image } from 'react-bootstrap';
+import { Image, Button, Dropdown } from 'react-bootstrap';
 import ModalAddContainer from './../ModalAdd/ModalAddContainer';
 import ModalAdd from './../ModalAdd/ModalAdd';
 import Loading from './../Loading/Loading';
+import CustomToggle from './CustomToggle';
 import InputNumberCustom from './../InputNumberCustom/InputNumberCustom';
 import * as actionsGeneral from './../../actions/general';
+import * as actionsPersonalData from './../../actions/personalData';
+import { capitalize } from './../../assets/utils/utils';
 import './AddCard.css';
 
 class AddCard extends Component {
@@ -14,6 +17,10 @@ class AddCard extends Component {
         this.props.dispatch(actionsGeneral.addModalSet(false));
         this.props.dispatch(actionsGeneral.servingSizeSet(0));
     }
+
+    handleOnclick = (index) => this.props.dispatch(actionsGeneral.mealTypeSelectedSet(index));
+
+    handleAddOnclick = () => this.props.dispatch(actionsPersonalData.AddItemFoodSet(this.props.dataPoints, this.props.itemFoodSelected, Object.keys(this.props.caloriesByMealType)[this.props.mealTypeSelected], this.props.servingSize));
 
     render() {
         return (
@@ -51,6 +58,26 @@ class AddCard extends Component {
                                             <div className="AddCardDetail">calories</div>
                                         </div>
                                     </div>
+                                    <div className="AddCardFooter">
+                                        <div>
+                                            <Dropdown>
+                                                <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components">
+                                                    {capitalize(Object.keys(this.props.caloriesByMealType)[this.props.mealTypeSelected])}
+                                                </Dropdown.Toggle>
+
+                                                <Dropdown.Menu>
+                                                    {
+                                                        Object.keys(this.props.caloriesByMealType).map((key, i) => {
+                                                            return <Dropdown.Item key={i} as="button" onClick={() => this.handleOnclick(i)}>{capitalize(key)}</Dropdown.Item>
+                                                        })
+                                                    }
+                                                </Dropdown.Menu>
+                                            </Dropdown>
+                                        </div>
+                                        <div className="text-right mt-3">
+                                            <Button variant="primary" size="lg" onClick={this.handleAddOnclick} disabled={(this.props.servingSize === 0 || this.props.servingSize === "0.00")}>ADD</Button>
+                                        </div>
+                                    </div>
                                 </div>
                             }
                         </ModalAdd>
@@ -63,10 +90,13 @@ class AddCard extends Component {
 
 function mapStateToProps(state, props) {
     return {
+        dataPoints: state.personal.data_points,
         addVisible: state.general.addVisible,
         loadingAdd: state.general.loadingAdd,
         itemFoodSelected: state.general.itemFoodSelected,
-        servingSize: state.general.servingSize
+        servingSize: state.general.servingSize,
+        mealTypeSelected: state.general.mealTypeSelected,
+        caloriesByMealType: state.calculatedInformation.caloriesByMealType
     }
 }
 

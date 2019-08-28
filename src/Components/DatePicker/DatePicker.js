@@ -69,7 +69,7 @@ function mapStateToProps(state, props) {
     return {
         isMobile: state.general.isMobile,
         dateSelected: state.general.dateSelected,
-        dataPoints: state.personal.dataPoints
+        dataPoints: state.personal.data_points
     }
 }
 

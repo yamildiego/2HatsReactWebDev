@@ -7,7 +7,8 @@ import {
     ADD_MODAL_SET,
     ITEM_FOOD_SELECTED_SET,
     LOADING_ADD_SET,
-    SERVING_SIZE_SET
+    SERVING_SIZE_SET,
+    MEAL_TYPE_SELECTED_SET
 } from "./../Reducers/types";
 import * as actionsPersonalData from './personalData';
 import Constants from './../config';
@@ -93,13 +94,13 @@ export const searchModalSet = (searchVisible, searchText) => {
     }
 }
 
-export const DateSet = (dateSelected, data) => {
+export const DateSet = (dateSelected, dataPoints) => {
     return (dispatch) => {
         dispatch({
             type: DATE_SET,
             dateSelected
         });
-        dispatch(actionsPersonalData.intakeListSet(dateSelected))
+        dispatch(actionsPersonalData.intakeListSet(dataPoints, dateSelected))
     }
 }
 
@@ -126,6 +127,11 @@ export const loadingAddSet = (loadingAdd) => ({
 export const servingSizeSet = (servingSize) => ({
     type: SERVING_SIZE_SET,
     servingSize
+})
+
+export const mealTypeSelectedSet = (mealTypeSelected) => ({
+    type: MEAL_TYPE_SELECTED_SET,
+    mealTypeSelected
 })
 
 export const itemFoodSelectedSet = (serving_qty, serving_unit, food_name) => {

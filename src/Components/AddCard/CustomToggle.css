@@ -1,0 +1,11 @@
+.CustomToggle {
+    background: #e8e8e8;
+    color: #5c5c5c;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 15px;
+}
+
+.CustomToggle:hover {
+    color: #6200ee;
+}

@@ -7,7 +7,8 @@ import {
     ADD_MODAL_SET,
     ITEM_FOOD_SELECTED_SET,
     LOADING_ADD_SET,
-    SERVING_SIZE_SET
+    SERVING_SIZE_SET,
+    MEAL_TYPE_SELECTED_SET
 } from './types';
 
 const initialState = {
@@ -21,7 +22,8 @@ const initialState = {
     loadingSearch: false,
     loadingAdd: false,
     itemFoodSelected: null,
-    servingSize: 0
+    servingSize: 0,
+    mealTypeSelected: 0
 }
 
 export default function general(state = initialState, action = {}) {
@@ -47,6 +49,8 @@ export default function general(state = initialState, action = {}) {
             return { ...state, itemFoodSelected: { ...action.itemFoodSelected, serving_size: 0 } };
         case SERVING_SIZE_SET:
             return { ...state, servingSize: action.servingSize };
+        case MEAL_TYPE_SELECTED_SET:
+            return { ...state, mealTypeSelected: action.mealTypeSelected };
         default:
             return state;
     }

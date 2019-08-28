@@ -51,3 +51,21 @@
     color: #696969;
     line-height: 4px;
 }
+
+.AddCard .btn-primary {
+    background: #6200ee;
+    box-shadow: 0 2px 5px #777;
+    border: 0;
+}
+
+.AddCard .btn-primary:focus {
+    background: #6200ee!important;
+    box-shadow: none!important;
+    border: 0;
+}
+
+.AddCard .btn-primary:active {
+    background: #43039d!important;
+    box-shadow: none!important;
+    border: 0;
+}

@@ -1,16 +1,17 @@
 import {
     PERSONAL_DATA_SET,
-    INTAKE_LIST_SET
+    INTAKE_LIST_SET,
+    ITEM_FOOD_ADD
 } from './types';
 
 const initialState = {
-    firstName: '',
-    lastName: '',
-    heightCM: 0,
-    weightKG: 0,
-    dailyGoal: 0,
-    intakeList: [],
-    dataPoints: []
+    first_name: '',
+    last_name: '',
+    height_cm: 0,
+    weight_kg: 0,
+    daily_goal: 0,
+    data_points: [],
+    intakeList: []
 }
 
 export default function personal(state = initialState, action = {}) {
@@ -19,6 +20,8 @@ export default function personal(state = initialState, action = {}) {
             return { ...state, ...action.data };
         case INTAKE_LIST_SET:
             return { ...state, intakeList: action.intakeList };
+        case ITEM_FOOD_ADD:
+            return { ...state, data_points: action.dataPoints };
         default:
             return state;
     }
