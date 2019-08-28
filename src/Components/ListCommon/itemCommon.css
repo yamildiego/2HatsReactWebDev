@@ -22,3 +22,12 @@
 .ItemCommon:nth-child(6n) .ItemCommonTexts {
     border-bottom: 0;
 }
+
+.ItemCommon:hover {
+    cursor: pointer;
+    background: #6200ee33;
+}
+
+.ItemCommon:hover .ItemCommonTexts {
+    border: 0;
+}

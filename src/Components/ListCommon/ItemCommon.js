@@ -5,7 +5,7 @@ import './itemCommon.css';
 
 const ItemCommon = (props) => {
     return (
-        <div className="ItemCommon d-flex bd-highlight mt-1 mb-1">
+        <div className="ItemCommon d-flex bd-highlight mt-1 mb-1" onClick={() => props.handleAddOnClick(props)}>
             <div className="p-2 bd-highlight ItemCommonPhoto">
                 <Image src={props.photo.thumb} />
             </div>
@@ -14,10 +14,6 @@ const ItemCommon = (props) => {
                     <div className="ItemCommonText">
                         {capitalizeAll(props.food_name)}
                     </div>
-                    {/* <div className="ItemFoodSubtitle">
-                        {this.props.servingQty} {this.props.servingUnit}
-                        {(this.props.servingWeightGrams) ? `(${Math.trunc(this.props.servingWeightGrams)} g)` : ""}
-                    </div> */}
                 </div>
             </div>
         </div>

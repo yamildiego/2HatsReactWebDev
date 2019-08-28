@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Image } from 'react-bootstrap';
 import { capitalizeAll } from '../../assets/utils/utils';
 import './ItemBranded.css';

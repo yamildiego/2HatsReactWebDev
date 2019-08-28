@@ -2,8 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ItemCommon from './ItemCommon';
 import './ListCommon.css';
+import * as actionsGeneral from './../../actions/general';
 
 class ListCommon extends Component {
+
+    handleAddOnClick = (item) => {
+        this.props.dispatch(actionsGeneral.itemFoodSelectedSet(item.serving_qty, item.serving_unit, item.food_name));
+    }
+
     render() {
         return (
             <div className="ListCommon">
@@ -11,7 +17,9 @@ class ListCommon extends Component {
                 {
                     this.props.common.map((item, key) => {
                         if (key <= 4)
-                            return <ItemCommon key={key} {...item} />
+                            return <ItemCommon key={key} {...item} handleAddOnClick={this.handleAddOnClick} />
+                        else
+                            return null;
                     })
                 }
                 {

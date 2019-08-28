@@ -12,6 +12,8 @@ class ListBranded extends Component {
                     this.props.branded.map((item, key) => {
                         if (key <= 4)
                             return <ItemBranded key={key} {...item} />
+                        else
+                            return null;
                     })
                 }
                 {

@@ -2,24 +2,24 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { InputGroup } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import * as actions from './../../actions/general';
+import * as actionsGeneral from './../../actions/general';
 
 class InputSearch extends Component {
     handleOnKeyDown = (event) => {
         if (event.which === 27)
-            this.props.dispatch(actions.searchModalSet(false))
+            this.props.dispatch(actionsGeneral.searchModalSet(false))
     }
 
     handleOnChange = (event) => {
         if (this.inputSearch.value === "")
-            this.props.dispatch(actions.searchModalSet(false, ""))
+            this.props.dispatch(actionsGeneral.searchModalSet(false, ""))
         else
-            this.props.dispatch(actions.searchModalSet(true, this.inputSearch.value))
+            this.props.dispatch(actionsGeneral.searchModalSet(true, this.inputSearch.value))
     }
 
     handleOnClick = () => {
         if (this.inputSearch.value !== "")
-            this.props.dispatch(actions.searchModalSet(true, this.inputSearch.value))
+            this.props.dispatch(actionsGeneral.searchModalSet(true, this.inputSearch.value))
     }
 
     setRef = element => this.inputSearch = element;

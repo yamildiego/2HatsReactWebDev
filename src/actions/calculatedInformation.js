@@ -24,8 +24,8 @@ export const getDataCalories = (intakeList) => {
     }
 
     intakeList.forEach(element => {
-        newState.caloriesConsumed += parseInt(element.nfCalories);
-        newState.caloriesByMealType[element.mealType] += parseInt(element.nfCalories);
+        newState.caloriesConsumed += parseInt((1 / element.serving_qty) * element.nf_calories * element.serving_size);
+        newState.caloriesByMealType[element.meal_type] += parseInt((1 / element.serving_qty) * element.nf_calories * element.serving_size);
     });
 
     return newState;

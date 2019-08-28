@@ -8,7 +8,10 @@ import { capitalize } from './../../assets/utils/utils';
 
 class Goal extends Component {
     render() {
-        let percentage = Math.trunc(this.props.caloriesConsumed * 100 / this.props.personal.dailyGoal);
+        let percentage = Math.trunc(this.props.caloriesConsumed * 100 / this.props.personal.daily_goal);
+        if (this.props.caloriesConsumed === 0 && this.props.personal.daily_goal === 0) percentage = 0;
+        if (percentage > 100) percentage = 100;
+
         return (
             <div className="Goal noselect">
                 <div className="d-flex justify-content-between">
@@ -20,7 +23,7 @@ class Goal extends Component {
                     />
                     <CardGold
                         isMobile={this.props.isMobile}
-                        calories={this.props.personal.dailyGoal}
+                        calories={this.props.personal.daily_goal}
                         subtitle="daily goal"
                         align="right"
                     />
@@ -31,8 +34,11 @@ class Goal extends Component {
                         className="GoalPercentage"
                         style={{ paddingLeft: (percentage - 2) + '%' }}
                     >
-                        {percentage}%
+                        {
+                            `${percentage}%`
+                        }
                     </div>
+
                 </div>
                 <div className="d-flex justify-content-between">
                     {

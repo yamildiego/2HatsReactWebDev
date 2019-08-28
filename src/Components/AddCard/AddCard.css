@@ -1,0 +1,53 @@
+.AddCard {
+    margin: 1rem;
+}
+
+.AddCardHeader {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.AddCardBody {
+    padding-top: 1rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.AddCardImage {
+    max-width: 80px;
+}
+
+.AddCardTitle {
+    font-size: 30px;
+}
+
+.AddCardClose {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    right: 35px;
+    top: 35px;
+    border: none;
+    background: transparent;
+    color: #6200EE;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.AddCardClose:after {
+    content: "X";
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.AddCardNumber {
+    font-size: 26px;
+    text-align: right;
+    color: #202020;
+}
+
+.AddCardDetail {
+    font-size: 12px;
+    text-align: right;
+    color: #696969;
+    line-height: 4px;
+}

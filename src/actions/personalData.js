@@ -18,7 +18,7 @@ export const personalDataSet = (data) => {
 
 export const intakeListSet = (date) => {
     return (dispatch) => {
-        let intakeList = getIntakeList(dataJSON.dataPoints, date);
+        let intakeList = getIntakeList(dataJSON.data_points, date);
         dispatch({
             type: INTAKE_LIST_SET,
             intakeList
@@ -30,10 +30,10 @@ export const intakeListSet = (date) => {
 
 export const getIntakeList = (elements, date) => {
     let intakeList = [];
+
     elements.forEach((element) => {
-        if (getDateFormatted(date) === element.date) {
-            intakeList = element.intakeList;
-        }
+        if (getDateFormatted(date) === element.date)
+            intakeList = element.intake_list;
     });
 
     return intakeList;

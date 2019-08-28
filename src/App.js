@@ -7,11 +7,9 @@ import BasicInformation from './Components/BasicInformation/BasicInformation';
 import Goal from './Components/Goal/Goal';
 import PersonalPanel from './Components/PersonalPanel/PersonalPanel';
 import ListFood from './Components/ListFood/ListFood';
-import ModalContainer from './Components/Modal/ModalContainer';
-import Modal from './Components/Modal/Modal';
-import Loading from './Components/Loading/Loading';
-import ListCommon from './Components/ListCommon/ListCommon';
-import ListBranded from './Components/ListBranded/ListBranded';
+import SearchCard from './Components/SearchCard/SearchCard';
+import AddCard from './Components/AddCard/AddCard';
+
 import * as actionsGeneral from './actions/general';
 import * as actionsPersonalData from './actions/personalData';
 import data from './data.json';
@@ -25,10 +23,6 @@ class App extends Component {
 
   componentWillUnmount = () => window.removeEventListener("resize", this.updateWindowDimensions);
   updateWindowDimensions = () => this.props.dispatch(actionsGeneral.mobileSet(window.innerWidth < 768));
-
-  closeModal = () => {
-    this.props.dispatch(actionsGeneral.searchModalSet(false))
-  }
 
   render() {
     return (
@@ -54,24 +48,8 @@ class App extends Component {
                 </Row>
               </Container>
             }
-            {
-              this.props.searchVisible &&
-              <ModalContainer>
-                <Modal closeModal={this.closeModal}>
-                  {
-                    this.props.loadingSearch &&
-                    <Loading loading={this.props.loadingSearch} />
-                  }
-                  {
-                    !this.props.loadingSearch &&
-                    <React.Fragment>
-                      <ListCommon />
-                      <ListBranded />
-                    </React.Fragment>
-                  }
-                </Modal>
-              </ModalContainer>
-            }
+            <SearchCard />
+            <AddCard />
           </Col>
         </Row>
       </Container>
@@ -82,8 +60,6 @@ class App extends Component {
 function mapStateToProps(state, props) {
   return {
     isMobile: state.general.isMobile,
-    searchVisible: state.general.searchVisible,
-    loadingSearch: state.general.loadingSearch
   }
 }
 

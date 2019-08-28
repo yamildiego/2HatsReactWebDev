@@ -4,7 +4,7 @@
 
 .Search .input-group {
     width: auto;
-    z-index: 100;
+    z-index: 15;
 }
 
 .Search .input-group-text {
