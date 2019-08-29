@@ -45,3 +45,11 @@
     border-top: 1px solid #6200ee;
     border-bottom: 1px solid white;
 }
+
+.Search .input-group-prepend {
+    margin-right: 1px;
+}
+
+.Search .form-control {
+    color: #212121!important;
+}

@@ -68,7 +68,7 @@ export const AddItemFoodSet = (dataPointsOld, itemFoodSelected, mealTypeSelected
         dispatch(actionsGeneral.mealTypeSelectedSet(0));
         dispatch(actionsGeneral.servingSizeSet(0));
         dispatch(actionsGeneral.addModalSet(false));
-        dispatch(actionsGeneral.searchModalSet(false));
+        dispatch(actionsGeneral.searchModalSet(false, ""));
     }
 }
 

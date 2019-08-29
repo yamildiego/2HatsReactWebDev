@@ -13,7 +13,7 @@ import Fab from './Components/Fab/Fab';
 
 import * as actionsGeneral from './actions/general';
 import * as actionsPersonalData from './actions/personalData';
-import data from './data.json';
+import { data } from './data';
 
 class App extends Component {
   componentDidMount = () => {

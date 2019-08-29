@@ -11,7 +11,7 @@ html, body, #root {
 }
 
 ::placeholder {
-  color: #212121!important;
+  color: #495057!important;
 }
 
 .noselect {

@@ -1,16 +1,22 @@
-{
+import { getDateFormatted } from './assets/utils/utils';
+
+let today = new Date();
+let yesterday = new Date(today.getFullYear(), today.getMonth(), (today.getDate() - 1));
+let beforeYesterday = new Date(yesterday.getFullYear(), yesterday.getMonth(), (yesterday.getDate() - 1));
+
+export const data = {
     "first_name": "Jane",
     "last_name": "Appleseed",
-    "height_cm": 57,
-    "weight_kg": 163,
+    "height_cm": 163,
+    "weight_kg": 57,
     "daily_goal": 1500,
     "data_points": [
         {
-            "date": "2019-08-28",
+            "date": getDateFormatted(today),
             "intake_list": []
         },
         {
-            "date": "2019-08-27",
+            "date": getDateFormatted(yesterday),
             "intake_list": [
                 {
                     "nix_item_id": "55c9298af0432259369100c4",
@@ -66,7 +72,7 @@
             ]
         },
         {
-            "date": "2019-08-26",
+            "date": getDateFormatted(beforeYesterday),
             "intake_list": [
                 {
                     "food_name": "fried eggs",

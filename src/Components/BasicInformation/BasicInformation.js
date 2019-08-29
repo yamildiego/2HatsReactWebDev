@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Image } from 'react-bootstrap';
 import CircleData from './../CircleData/CircleData';
-import ImageProfile from './../../assets/image/profile.fw.png';
+import ImageProfile from './../../assets/image/profile.png';
 import './BasicInformationSM.css';
 
 class BasicInformation extends Component {

@@ -8,9 +8,8 @@ import { capitalize } from './../../assets/utils/utils';
 
 class Goal extends Component {
     render() {
-        let percentage = Math.trunc(this.props.caloriesConsumed * 100 / this.props.personal.daily_goal);
+        let percentage = Math.round(this.props.caloriesConsumed * 100 / this.props.personal.daily_goal);
         if (this.props.caloriesConsumed === 0 && this.props.personal.daily_goal === 0) percentage = 0;
-        if (percentage > 100) percentage = 100;
 
         return (
             <div className="Goal noselect">
@@ -32,7 +31,7 @@ class Goal extends Component {
                     <ProgressBar now={percentage} label={`${percentage}%`} srOnly />
                     <div
                         className="GoalPercentage"
-                        style={{ paddingLeft: (percentage - 5) + '%' }}
+                        style={{ paddingLeft: ((percentage > 100 ? 100 : percentage) - 5) + '%' }}
                     >
                         {
                             `${percentage}%`
