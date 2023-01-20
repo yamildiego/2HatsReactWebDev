@@ -2,7 +2,9 @@
   font-family: 'Sebino';
 }
 
-html, body, #root {
+html,
+body,
+#root {
   height: 100%;
 }
 
@@ -11,7 +13,7 @@ html, body, #root {
 }
 
 ::placeholder {
-  color: #495057!important;
+  color: #495057 !important;
 }
 
 .noselect {
@@ -31,6 +33,6 @@ html, body, #root {
 
 @media (max-width: 991px) and (min-width: 767px) {
   .container {
-    max-width: 100%!important;
+    max-width: 100% !important;
   }
 }

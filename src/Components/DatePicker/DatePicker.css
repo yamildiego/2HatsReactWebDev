@@ -36,9 +36,9 @@
 }
 
 .DatePickerIconDisabled svg {
-    color: #bebdf7!important;
+    color: #bebdf7 !important;
 }
 
 .DatePickerIconDisabled {
-    cursor: default!important;
+    cursor: default !important;
 }

@@ -1,42 +1,32 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import ItemCommon from './ItemCommon';
-import './ListCommon.css';
-import * as actionsGeneral from './../../actions/general';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import ItemCommon from "./ItemCommon";
+import "./ListCommon.css";
+import * as actionsGeneral from "./../../actions/general";
 
 class ListCommon extends Component {
+  handleAddOnClick = (item) => {
+    this.props.dispatch(actionsGeneral.itemFoodSelectedSet(item.serving_qty, item.serving_unit, item.food_name));
+  };
 
-    handleAddOnClick = (item) => {
-        this.props.dispatch(actionsGeneral.itemFoodSelectedSet(item.serving_qty, item.serving_unit, item.food_name));
-    }
-
-    render() {
-        return (
-            <div className="ListCommon">
-                <div className="ListCommonTitle">Common</div>
-                {
-                    this.props.common.map((item, key) => {
-                        if (key <= 4)
-                            return <ItemCommon key={key} {...item} handleAddOnClick={this.handleAddOnClick} />
-                        else
-                            return null;
-                    })
-                }
-                {
-                    (this.props.common.length === 0) &&
-                    <div className="ListCommonNoElement noselect">
-                        No items found.
-                    </div>
-                }
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div className="ListCommon">
+        <div className="ListCommonTitle">Common</div>
+        {this.props.common.map((item, key) => {
+          if (key <= 4) return <ItemCommon key={key} {...item} handleAddOnClick={this.handleAddOnClick} />;
+          else return null;
+        })}
+        {this.props.common.length === 0 && <div className="ListCommonNoElement noselect">No items found.</div>}
+      </div>
+    );
+  }
 }
 
 function mapStateToProps(state, props) {
-    return {
-        common: state.general.common
-    }
+  return {
+    common: state.general.common,
+  };
 }
 
 export default connect(mapStateToProps)(ListCommon);

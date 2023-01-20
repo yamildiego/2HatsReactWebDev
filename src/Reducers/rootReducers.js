@@ -4,7 +4,7 @@ import personal from "./personalData";
 import calculatedInformation from "./calculatedInformation";
 
 export default combineReducers({
-    general,
-    personal,
-    calculatedInformation
+  general,
+  personal,
+  calculatedInformation,
 });
