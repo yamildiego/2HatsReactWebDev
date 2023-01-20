@@ -1,10 +1,14 @@
-import React from 'react';
-import { createPortal } from 'react-dom';
+import React, { useState } from "react";
+import ReactDOM from "react-dom";
 
-class ModalAddContainer extends React.Component {
-    render() {
-        return createPortal(this.props.children, document.getElementById("modal-add-container"));
-    }
+function ModalAddContainer(props) {
+  const [domReady, setDomReady] = React.useState(false);
+
+  React.useEffect(() => {
+    setDomReady(true);
+  });
+
+  return domReady ? ReactDOM.createPortal(props.children, document.getElementById("modal-add-container")) : null;
 }
 
 export default ModalAddContainer;

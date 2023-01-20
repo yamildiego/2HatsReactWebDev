@@ -63,14 +63,14 @@
 }
 
 .AddCard .btn-primary:focus {
-    background: #6200ee!important;
-    box-shadow: none!important;
+    background: #6200ee !important;
+    box-shadow: none !important;
     border: 0;
 }
 
 .AddCard .btn-primary:active {
-    background: #43039d!important;
-    box-shadow: none!important;
+    background: #43039d !important;
+    box-shadow: none !important;
     border: 0;
 }
 
