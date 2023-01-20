@@ -18,7 +18,7 @@ class Goal extends Component {
           <CardGold isMobile={this.props.isMobile} calories={this.props.personal.daily_goal} subtitle="daily goal" align="right" />
         </div>
         <div className="mb-3">
-          <ProgressBar now={percentage} label={`${percentage}%`} />
+          <ProgressBar now={percentage} label={`${percentage}%`} visuallyHidden />
           <div className="GoalPercentage" style={{ paddingLeft: (percentage > 100 ? 100 : percentage) - 5 + "%" }}>
             {`${percentage}%`}
           </div>

@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-// import { InputGroup } from "react-bootstrap";
-import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as actionsGeneral from "./../../actions/general";
@@ -26,8 +24,10 @@ class InputSearch extends Component {
     return (
       <>
         <InputGroup className="m-2">
-          <InputGroup.Text id="basic-addon1">
-            <FontAwesomeIcon icon="search" className={this.props.isMobile ? "SearchIconMobile" : "SearchIcon"} />
+          <InputGroup.Text id="basic-addon1" className="InputGroupSearch">
+            <div className="SearchInputIcon">
+              <FontAwesomeIcon icon="search" className={this.props.isMobile ? "SearchIconMobile" : "SearchIcon"} />
+            </div>
           </InputGroup.Text>
           <input
             type="text"
